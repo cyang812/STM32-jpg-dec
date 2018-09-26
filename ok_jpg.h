@@ -63,7 +63,7 @@
 extern "C" {
 #endif
 
-//cyang add 
+//cyang add
 /*
  *  use RGB color format
  */
@@ -106,7 +106,9 @@ typedef enum {
  * @return a new #ok_jpg object. Never returns `NULL`. The object should be freed with
  * #ok_jpg_free().
  */
-ok_jpg *ok_jpg_read(void *file, ok_jpg_decode_flags decode_flags);
+ok_jpg *ok_jpg_read(FILE *file, ok_jpg_decode_flags decode_flags);
+
+ok_jpg *ok_jpg_read_fsm(FILE *file, ok_jpg_decode_flags decode_flags);
 
 /**
  * Reads a JPEG image, outputing image data to a preallocated buffer.
@@ -125,7 +127,7 @@ ok_jpg *ok_jpg_read(void *file, ok_jpg_decode_flags decode_flags);
  * @return a new #ok_jpg object. Never returns `NULL`. The object should be freed with
  * #ok_jpg_free().
  */
-ok_jpg *ok_jpg_read_to_buffer(void *file, uint8_t *dst_buffer, uint32_t dst_stride,
+ok_jpg *ok_jpg_read_to_buffer(FILE *file, uint8_t *dst_buffer, uint32_t dst_stride,
                               ok_jpg_decode_flags decode_flags);
 
 #endif
